@@ -1,8 +1,8 @@
 package com.ashpex;
 
-public interface Controller <T> {
-    public boolean addSlangWord(T word);
-    public boolean removeSlangWord(T word);
-    public boolean updateSlangWord(T oldWord, T newWord);
-    public T getSlangWord(T word);
+public class Controller{
+    final String PATH = "slang.txt";
+    final String DEFAULT_PATH = "default.txt";
+    final String HISTORY_PATH = "history.dat";
+
 }
