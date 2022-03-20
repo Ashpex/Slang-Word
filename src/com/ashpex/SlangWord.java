@@ -30,7 +30,7 @@ public class SlangWord {
         return this.definition;
     }
 
-    public String removeSlang(String slang) {
+    public String removeDefinition(String slang) {
         String str = "";
         if(this.definition.contains("|")) {
             String[] definitions = this.definition.split("\\|");
