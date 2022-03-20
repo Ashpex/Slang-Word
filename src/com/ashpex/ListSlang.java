@@ -56,6 +56,42 @@ public class ListSlang {
         }
     }
 
+    public void showListSlang() {
+        for (Map.Entry<String, SlangWord> entry : slangList.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue().getSlang());
+        }
+    }
+
+    public String searchDefinitionBasedOnSlang(String word) {
+        if (slangList.containsKey(word)) {
+            String definition = slangList.get(word).getDefinition();
+            history.Add(word + ": " + definition);
+            return definition;
+        } else {
+            history.Add(word + " not found");
+            return word + " not found";
+        }
+    }
+
+    public String searchSlangBasedOnDefinition(String definition) {
+        String temp = standardize(definition);
+        String src = "";
+        for (Map.Entry<String, SlangWord> entry : slangList.entrySet()) {
+            String str = entry.getValue().getDefinition();
+            if (str.contains(temp)) {
+                SlangWord word = entry.getValue();
+                src += word.getSlang() + ": " + word.getDefinition() + "\n";
+            }
+        }
+        if (src.equals("")) {
+            src = "No result found";
+        }
+        history.Add(src);
+        return src;
+
+    }
+
+
     private void addSlang(String slang, String definition, int duplicate) {
         if (!slangList.containsKey(slang)) {
             SlangWord newWord = new SlangWord(slang, definition);
