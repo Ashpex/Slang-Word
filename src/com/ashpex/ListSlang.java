@@ -43,8 +43,14 @@ public class ListSlang {
                     if (slangList.containsKey(tempArray[0])) {
                         addSlang(tempArray[0], tempArray[1],0);
                     }
+                    SlangWord newWord = new SlangWord(tempArray[0], tempArray[1]);
+                    slangList.put(newWord.getSlang(), newWord);
+                } else {
+                    SlangWord newWord = new SlangWord(temp, "");
+                    slangList.put(newWord.getSlang(), newWord);
                 }
             }
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
