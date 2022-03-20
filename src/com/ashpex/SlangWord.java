@@ -1,20 +1,20 @@
 package com.ashpex;
 
 public class SlangWord {
-    private String word;
+    private String slang;
     private String definition;
 
-    public SlangWord(String word, String definition) {
-        this.word = word;
+    public SlangWord(String slang, String definition) {
+        this.slang = slang;
         this.definition = definition;
     }
 
-    public String getWord() {
-        return word;
+    public String getSlang() {
+        return this.slang;
     }
 
-    public void setWord(String word) {
-        this.word = word;
+    public void setSlang(String slang) {
+        this.slang = slang;
     }
 
     public String getDefinition() {
@@ -24,6 +24,35 @@ public class SlangWord {
     public void setDefinition(String definition) {
         this.definition = definition;
     }
+
+    public String addDefinition(String definition) {
+        this.definition = this.definition + "|" + definition;
+        return this.definition;
+    }
+
+    public String removeSlang(String slang) {
+        String str = "";
+        if(this.definition.contains("|")) {
+            String[] definitions = this.definition.split("\\|");
+            for(String definition : definitions) {
+                if(!definition.contains(slang)) {
+                    str += definition + "|";
+                }
+            }
+        }else {
+            if(this.definition.contains(slang)) {
+                str = "";
+            }else {
+                str = this.definition;
+            }
+        }
+         return str;
+    }
+
+    public boolean containsDefinition(String str){
+        return this.definition.contains(str);
+    }
+
 }
 
 

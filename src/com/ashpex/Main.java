@@ -1,16 +1,19 @@
 package com.ashpex;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 	// write your code here
-        Scanner scanner = new Scanner(System.in);
-
+        for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+            System.out.println(info.getClassName());
+        }
+        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
     }
 
-    static void showMenu(){
+/*    static void showMenu(){
         System.out.println("1. Find definition by slang word");
         System.out.println("2. Find slang word by definition");
         System.out.println("3. Show history of search");
@@ -84,6 +87,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String definition = scanner.nextLine();
         System.out.println("The slang word of " + definition + " is: " + dictionary.getSlangWord(definition));
-    }
+    }*/
 
 }
