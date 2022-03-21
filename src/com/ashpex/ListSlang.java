@@ -3,9 +3,7 @@ package com.ashpex;
 import javax.swing.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class ListSlang {
     private static final Map.Entry<String, SlangWord> entry = null;
@@ -58,8 +56,19 @@ public class ListSlang {
 
     public void showListSlang() {
         for (Map.Entry<String, SlangWord> entry : slangList.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue().getSlang());
+            System.out.println(entry.getKey() + " " + entry.getValue().getDefinition());
         }
+    }
+
+    public String[][] getListSlang() {
+        String[][] result = new String[slangList.size()][2];
+        int i = 0;
+        for (Map.Entry<String, SlangWord> entry : slangList.entrySet()) {
+            result[i][0] = entry.getKey();
+            result[i][1] = entry.getValue().getDefinition();
+            i++;
+        }
+        return result;
     }
 
     public String searchDefinitionBasedOnSlang(String word) {
@@ -201,6 +210,18 @@ public class ListSlang {
     public void saveHistory(){
         history.saveHistory();
     }
+
+    public String[][] getData() {
+        String[][] data = new String[slangList.size()][3];
+        String data2[][] = this.getListSlang();
+        for (int i = 0; i < data2.length; i++) {
+            data[i][0] = String.valueOf(i + 1);
+            data[i][1] = data2[i][0];
+            data[i][2] = data2[i][1];
+        }
+        return data;
+    }
+
 }
 
 

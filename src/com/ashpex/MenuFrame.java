@@ -99,7 +99,11 @@ public class MenuFrame extends JFrame implements ActionListener{
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == b1) {
             this.dispose();
-
+            try{
+                new ListFrame();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
 
         }
     }
