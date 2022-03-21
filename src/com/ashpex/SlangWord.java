@@ -4,6 +4,10 @@ public class SlangWord {
     private String slang;
     private String definition;
 
+    SlangWord() {
+        this.slang = "";
+        this.definition = "";
+    }
     public SlangWord(String slang, String definition) {
         this.slang = slang;
         this.definition = definition;

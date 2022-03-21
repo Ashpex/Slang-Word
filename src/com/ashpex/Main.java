@@ -11,6 +11,7 @@ public class Main {
             System.out.println(info.getClassName());
         }
         UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        new MenuFrame();
     }
 
 /*    static void showMenu(){
