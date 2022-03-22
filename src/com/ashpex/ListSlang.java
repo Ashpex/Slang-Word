@@ -74,10 +74,12 @@ public class ListSlang {
     public String searchDefinitionBasedOnSlang(String word) {
         if (slangList.containsKey(word)) {
             String definition = slangList.get(word).getDefinition();
-            history.Add(word + ": " + definition);
+            this.history.Add(word + ": " + definition);
+            this.history.saveHistory();
             return definition;
         } else {
-            history.Add(word + " not found");
+            this.history.Add(word + " not found");
+            this.history.saveHistory();
             return word + " not found";
         }
     }

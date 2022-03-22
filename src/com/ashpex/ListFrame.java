@@ -13,6 +13,7 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
     JTable jTable;
     ListSlang listSlang;
     String[][] data;
+    String[][] data2;
 
     public ListFrame() throws FileNotFoundException {
         Container container = this.getContentPane();
@@ -23,7 +24,7 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
         lblTitle.setBounds(10, 10, 200, 30);
         lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel result = new JLabel("");
+        JLabel result = new JLabel();
         result.setForeground(Color.black);
         result.setFont(new Font("Arial", Font.PLAIN, 20));
         result.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -31,12 +32,9 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
         JPanel panelTable = new JPanel();
         panelTable.setBackground(Color.black);
         String column[] = { "ID", "Slang Word", "Definition" };
-        String data2[][] = listSlang.getListSlang();
-        for (int i = 0; i < data2.length; i++) {
-            data[i][0] = String.valueOf(i + 1);
-            data[i][1] = data2[i][0];
-            data[i][2] = data2[i][1];
-        }
+
+        data2 = listSlang.getData();
+        data = listSlang.getData();
         result.setText("Total: " + data.length);
         jTable = new JTable(data, column);
         jTable.setRowHeight(30);
@@ -55,7 +53,7 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
 
         JPanel bottomPanel = new JPanel();
         btnBack = new JButton("Back");
-        btnBack.setFont(new Font("Arial", Font.BOLD, 20));
+        btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
         btnBack.addActionListener(this);
         btnBack.setAlignmentX(Component.CENTER_ALIGNMENT);
         bottomPanel.add(btnBack);
@@ -96,9 +94,9 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
         String Value = (String) jTable.getValueAt(row, column);
 
         if(column == 2){
-            System.out.println("Old slangword: \t" + row + "\t" + data[row][2]);
-
-
+            System.out.println("Old slangword: \t" + row + "\t" + data2[row][2]);
+            //listSlang.editSlang((String) jTable.getValueAt(row, 1), data2[row][2], (String) jTable.getValueAt(row, 2));
+            JOptionPane.showMessageDialog(this, "Edit Successful", "Edit", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
