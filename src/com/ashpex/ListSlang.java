@@ -84,6 +84,34 @@ public class ListSlang {
         }
     }
 
+    public String[][] searchDefinitionBasedOnSlang3(String word){
+        int i = 0;
+        String[][] result = new String[slangList.size()][3];
+        if(slangList.containsKey(word)){
+            String definition = slangList.get(word).getDefinition();
+            if(definition.length() > 0){
+                String[] definitionList = definition.split("\\| ");
+                result = new String[definitionList.length][3];
+                for(String s : definitionList){
+                    /*System.out.println(s);*/
+                    result[i][0] = String.valueOf(i+1);
+                    result[i][1] = word;
+                    result[i][2] = s;
+                    i++;
+                }
+                this.history.Add(word + ": " + definition);
+                this.history.saveHistory();
+                return result;
+            }else {
+                this.history.Add(word + " not found");
+                this.history.saveHistory();
+                return null;
+            }
+        }
+        return result;
+    }
+
+
     public String searchSlangBasedOnDefinition(String definition) {
         String temp = standardize(definition);
         String src = "";
@@ -102,6 +130,23 @@ public class ListSlang {
 
     }
 
+    public String searchSlangBasedOnDefinition2(String definition) {
+        String temp = standardize(definition);
+        String src = "";
+        for (Map.Entry<String, SlangWord> entry : slangList.entrySet()) {
+            String str = entry.getValue().getDefinition();
+            if (str.contains(temp)) {
+                SlangWord word = entry.getValue();
+                src += word.getSlang() + ": " + word.getDefinition() + "\n";
+            }
+        }
+        if (src.equals("")) {
+            src = "No result found";
+        }
+        history.Add(src);
+        return src;
+
+    }
 
     private void addSlang(String slang, String definition, int duplicate) {
         if (!slangList.containsKey(slang)) {

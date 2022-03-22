@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
 
 public class FindSlangFrame extends JFrame implements ActionListener, TableModelListener {
     JButton btnBack, btnFind;
@@ -24,9 +25,9 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
             JOptionPane.YES_NO_OPTION);
     String data[][] = { { "", "", "" } };
 
-    FindSlangFrame(){
+    FindSlangFrame() throws FileNotFoundException {
         Container container = this.getContentPane();
-
+        listSlang = new ListSlang();
         //set title
         JLabel title = new JLabel("Find Slang");
         title.setFont(new Font("Arial", Font.BOLD, 20));
@@ -119,56 +120,45 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
             }
             Object[] options = {"Find definition by slang", "Find slang by definition"};
             int n = JOptionPane.showOptionDialog(null, "Do you want to find by slang or definition?", "Find", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-            String[][] data = new String[][]{{""},{""}};
+            String[][] data = new String[0][3];
             if(n == 0){
                 this.clearTable();
                 long startTime = System.currentTimeMillis();
-                data[0][0] = word;
-
+                System.out.println("Searching for " + word);
                 try{
-                    String temp = listSlang.searchDefinitionBasedOnSlang(word);
+                    data = listSlang.searchDefinitionBasedOnSlang3(word);
                     long endTime = System.currentTimeMillis();
                     long duration = endTime - startTime;
-                    JOptionPane.showMessageDialog(null, "Found definition in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    data[0][1] = temp;
+                    result = data;
+                    if(checkNull(data)){
+                        JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Found definition in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        for (int i = 0; i < result.length; i++) {
+                            model.addRow(result[i]);
+                        }
+                    }
+                } catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else if(n == 1){
+                this.clearTable();
+                long startTime = System.currentTimeMillis();
+
+                System.out.println("Searching for " + word);
+                try{
+                    String slang = listSlang.searchSlangBasedOnDefinition(word);
+                    System.out.println("Found " + slang);
+                    long endTime = System.currentTimeMillis();
+                    long duration = endTime - startTime;
+                    JOptionPane.showMessageDialog(null, "Found slang in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    data[0][1] = slang;
                     result = data;
                     for (int i = 0; i < result.length; i++) {
                         model.addRow(result[i]);
                     }
                 } catch (Exception ex){
-                    JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                //data[0][1] = listSlang.searchDefinitionBasedOnSlang(word);
-                long endTime = System.currentTimeMillis();
-                long duration = endTime - startTime;
-/*                if(data[0][1] == null){
-                    JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                } else {
-                    JOptionPane.showMessageDialog(null, "Found definition in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
-
-                }
-                result = data;
-                for(int i = 0; i < result.length; i++){
-                    model.addRow(result[i]);
-                }*/
-            } else if(n == 1){
-                this.clearTable();
-                long startTime = System.currentTimeMillis();
-                data[0][0] = word;
-                data[0][1] = listSlang.searchSlangBasedOnDefinition(word);
-                long endTime = System.currentTimeMillis();
-                long duration = endTime - startTime;
-                if(data[0][1] == null){
-                    JOptionPane.showMessageDialog(null, "No slang found", "Error", JOptionPane.ERROR_MESSAGE);
-                    //txtFind.setText("No slang found");
-                    return;
-                }
-                JOptionPane.showMessageDialog(null, "Found slang in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
-                //txtFind.setText("Found slang in " + duration + " milliseconds");
-                result = data;
-                for(int i = 0; i < result.length; i++){
-                    model.addRow(result[i]);
+                    JOptionPane.showMessageDialog(null, "No slang word found", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         } else if(e.getSource() == btnBack){
@@ -186,5 +176,12 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
         for(int i = 0; i < model.getRowCount(); i++){
             model.removeRow(i);
         }
+    }
+    public static boolean checkNull(String[][] result) {
+        for(int i = 0; i < result.length; i++) {
+            if(result[i][0] == null)
+                return true;
+        }
+        return false;
     }
 }
