@@ -45,6 +45,10 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
         jTable.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         jTable.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
 
+        DefaultTableCellRenderer headerRender = (DefaultTableCellRenderer)jTable.getTableHeader().getDefaultRenderer();
+        headerRender.setHorizontalAlignment(JLabel.CENTER);
+        jTable.getTableHeader().setFont(new Font("SansSerif", Font.PLAIN, 20));
+
         jTable.getModel().addTableModelListener(this);
 
         JScrollPane scrollPane = new JScrollPane(jTable);

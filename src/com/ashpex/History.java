@@ -59,4 +59,11 @@ public class History {
         }
     }
 
+    public ArrayList<String> getHistory() {
+        return historyList;
+    }
+
+    public void clearHistory() {
+        historyList.clear();
+    }
 }

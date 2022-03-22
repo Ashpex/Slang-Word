@@ -269,6 +269,13 @@ public class ListSlang {
         return data;
     }
 
+    public ArrayList<String> getHistory() {
+        return history.getHistory();
+    }
+
+    public void clearHistory() {
+        history.clearHistory();
+    }
 }
 
 

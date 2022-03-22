@@ -18,7 +18,6 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
     JLabel titleLabel;
     DefaultTableModel model;
     ListSlang listSlang;
-    String[][] result;
 
     final JOptionPane optionPane = new JOptionPane("The only way to close this dialog is by\n"
             + "pressing one of the following buttons.\n" + "Do you understand?", JOptionPane.QUESTION_MESSAGE,
@@ -70,6 +69,11 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
         jTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         jTable.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         jTable.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+
+        DefaultTableCellRenderer headerRender = (DefaultTableCellRenderer)jTable.getTableHeader().getDefaultRenderer();
+        headerRender.setHorizontalAlignment(JLabel.CENTER);
+        jTable.getTableHeader().setFont(new Font("SansSerif", Font.PLAIN, 20));
+
         jTable.getModel().addTableModelListener(this);
         JScrollPane scrollPane = new JScrollPane(jTable);
 
@@ -129,7 +133,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
                     data = listSlang.searchDefinitionBasedOnSlang3(word);
                     long endTime = System.currentTimeMillis();
                     long duration = endTime - startTime;
-                    result = data;
+                    String[][] result = data;
                     if(checkNull(data)){
                         JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
                     }else{
@@ -142,6 +146,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
                     JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else if(n == 1){
+
                 this.clearTable();
                 long startTime = System.currentTimeMillis();
 
@@ -153,7 +158,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
                     long duration = endTime - startTime;
                     JOptionPane.showMessageDialog(null, "Found slang in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
                     data[0][1] = slang;
-                    result = data;
+                    String[][] result = data;
                     for (int i = 0; i < result.length; i++) {
                         model.addRow(result[i]);
                     }

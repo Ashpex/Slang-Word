@@ -114,5 +114,13 @@ public class MenuFrame extends JFrame implements ActionListener{
                 ex.printStackTrace();
             }
         }
+        if (e.getSource() == b6) {
+            this.dispose();
+            try{
+                new HistoryFrame();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
