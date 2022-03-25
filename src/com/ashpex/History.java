@@ -65,5 +65,6 @@ public class History {
 
     public void clearHistory() {
         historyList.clear();
+        this.saveHistory();
     }
 }

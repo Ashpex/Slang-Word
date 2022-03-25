@@ -132,7 +132,11 @@ public class AddSlangFrame extends javax.swing.JFrame implements java.awt.event.
         }
         else if(evt.getSource() == btnBack){
             this.dispose();
-            new MenuFrame();
+            try {
+                new MenuFrame();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

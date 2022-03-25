@@ -113,7 +113,11 @@ public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.eve
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == btnBack) {
             this.dispose();
-            new MenuFrame();
+            try {
+                new MenuFrame();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
         }
         if (e.getSource() == btnDelete) {
             String slang = txtSlang.getText();

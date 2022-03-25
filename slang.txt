@@ -457,7 +457,7 @@ SYA`See You
 BWT`Misspelling of BTW
 SYG`Shut Your Gob
 SYF`Shut Your Face
-BWW`Buffalo Wild Wings 
+BWW`Buffalo Wild Wings
 CACHAI`Do you understand?
 SYK`So You Know
 SYM`Shut Your Mouth| So You Mad?
@@ -582,7 +582,7 @@ CBD`Cute But Dumb
 CBC`Canadian Broadcasting Corporation
 CBH`Child Bearing Hips
 CBI`Californian Bureau of Investigation| Confederation of British Industry
-CBR`Captive Bead Ring 
+CBR`Captive Bead Ring
 ELI5`Explain Like I'm 5
 CBT`Cognitive Behavioural Therapy
 CBS`Can't Be Stuffed
@@ -723,7 +723,6 @@ CIB`Complete In Box
 CID`Acid| LSD
 CIG`Cigarette
 %)`Drunk| giddy
-test`this is a test
 CIO`Check It Out
 TKD`Taekwondo
 CIR`Committed Information Rate (minimum bandwidth)
@@ -893,7 +892,7 @@ IYAM`If You Ask Me
 CPM`Cost Per Thousand
 DISO`Desperately In Search Of
 CPP`C Plus Plus| C++ (programming language)
-Person wearing a hooded sweatshirt`-
+Person wearing a hooded sweatshirt`----
 THAR`There
 TRA`Bye
 CPR`Cardiopulmonary Resuscitation
@@ -2838,7 +2837,7 @@ POTY`Post Of The Year
 WSA`Wow, Strong Arms
 G2R`Got To Run
 BUSTED`Very Ugly| Caught
-POTW`Patient of the Week 
+POTW`Patient of the Week
 G2S`Go To Sleep
 BWOI`Friend| buddy
 WSM`Woman Seeking Man
@@ -3175,7 +3174,7 @@ GOMEN`Sorry
 SHWE`Should We
 DMML`Don't Make Me Laugh
 HIT ME UP`Call me later
-Something really good`-
+Something really good`----
 XLS`MS Excel file extension
 GOMER`Get Out of My Emergency Room| unwelcome patient
 ADDY`Address
@@ -3251,7 +3250,7 @@ LSHMBH`Laughing So Hard My Belly Hurts
 Y2K`Year 2000
 H1B`US employment visa
 GPA`Grade-Point Average
-GPC`Generic Pack of Cigarettes| Get/Post/Cookie 
+GPC`Generic Pack of Cigarettes| Get/Post/Cookie
 GPL`General Public License
 GPS`Global Positioning System
 GPU`Graphics Processing Unit
@@ -3604,7 +3603,7 @@ GRULE`Hard work| nuisance
 FTUW`For The Ultimate Win
 BTWITIAILWU`By The Way, I Think I Am In Love With You
 HLV`Hasta La Vista
-8-)`Cool 
+8-)`Cool
 GFWL`Games For Windows Live
 BTWITIAILWY`By The Way, I Think I Am In Love With You
 YNK`You Never Know
@@ -3645,9 +3644,10 @@ YPU`you
 CUWYL`Catch Up With You Later
 HOH`Head Over Heels| Hard Of Hearing
 HOG`Harley Owner Group
+Ã`Registered Trademark Symbol
 GLEAK`Spit
 HON`Honey
-8-|`Nerdy 
+8-|`Nerdy
 HOP`Heroin
 HOT`Very good looking| sexy
 BHL8`Be Home Late
@@ -3664,6 +3664,7 @@ TMAI`Tell Me About It
 JPEG`Joint Photographic Experts Group| Image file format
 DINLO`Stupid person
 YRG`You Are Good!
+Ã´`Trademark
 IMBO`In My Biased Opinion
 YRO`Your Rights Online
 TMBG`They Might Be Giants (band)
@@ -3869,7 +3870,7 @@ IBS`Irritable Bowel Syndrome
 IBU`Ibuprofen
 QOTSA`Queens Of The Stone Age (Band)
 IBW`I'll Be Waiting
-ICC`Ice Crown Citadel 
+ICC`Ice Crown Citadel
 BLARG`boredom
 ICB`I Can't Believe...
 ICE`Diamonds| Crystal meth| Kill
@@ -4210,7 +4211,6 @@ IYT`All right
 IYW`If You Want/Will
 INIT`Isn't it?| Initialization
 ZILCH`Nothing| zero
-hello`hi
 AFRO`Hairstyle from Africa
 LIFTED`High
 LFTI`Looking Forward To It
@@ -4675,7 +4675,7 @@ KTF`Keep The Faith
 AYOR`At Your Own Risk
 WAYOA`What Are You On About?
 KTY`Ok, Thank You
-Cam for Cam`-
+Cam for Cam`----
 NNTP`Network News Transfer Protocol
 NNTR`No Need To Reply
 DIQUE`Supposedly
@@ -4743,7 +4743,7 @@ J DUB`Jehovah's Witness
 OFWGKTA`Odd Future Wolf Gang Kill Them All
 WYTA`What You Talking About?
 MOBBING`Bullying
-Indicating hesitation`-
+Indicating hesitation`----
 SMHL`Shaking My Head Laughing
 USPS`United States Postal Service
 WAYWO`What Are You Working On?
@@ -6708,7 +6708,6 @@ PVP`Player v Player
 PVR`Personal Video Recorder
 PVT`Private
 SACK`Bed
-ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ`Registered Trademark Symbol
 TFMTK`That's For Me To Know
 NBTW`Now Back To Work
 WHACK`Bad
@@ -6726,7 +6725,6 @@ TUFF`Rugged
 NBSB`No Boyfriend Since Birth
 OKIES`Okay
 PWM`Professional White Male
-ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ´`Trademark
 PWP`Plot? What Plot?
 PWT`Poor White Trash
 LMOA`LMAO
@@ -6986,7 +6984,7 @@ CTRL`Control (key)
 KOOLS`Mentholated cigarettes
 HONKIE`White person
 SSBB`Super Smash Brothers Brawl
-Against Medical Advice`-
+Against Medical Advice`----
 ALPHA`Head person of a group
 /R/`Requesting
 QTR`Quarter
@@ -7261,7 +7259,7 @@ MESSRS`Messieurs| Mister
 RLZ`Rules
 RMA`Return Merchandise Authorization
 AKS`Ask
-CULO`Ass 
+CULO`Ass
 RME`Rolling My Eyes
 RML`Read My Lips
 ALA`In the style of
@@ -7477,7 +7475,7 @@ LOOL`Laughing Outlandishly Out Loud
 ATW`All The Way
 COCK UP`Mistake| mess
 ATX`Austin, Texas
-LOOT`Money 
+LOOT`Money
 IWHI`I Would Hit It
 RVR`Realm Versus Realm (MMORPG)
 AUD`Australian Dollar

@@ -71,6 +71,9 @@ public class HistoryFrame extends javax.swing.JFrame implements ActionListener {
         btnExit.addActionListener(this);
         btnBack.addActionListener(this);
         btnClear.addActionListener(this);
+        btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnExit.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnClear.setFont(new Font("Arial", Font.PLAIN, 20));
         Dimension dimension = new Dimension(700, 50);
         pnlButtons.setPreferredSize(dimension);
         pnlButtons.setMaximumSize(dimension);
@@ -101,7 +104,11 @@ public class HistoryFrame extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == btnBack) {
             this.dispose();
-            new MenuFrame();
+            try {
+                new MenuFrame();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         } else if (evt.getSource() == btnExit) {
             this.dispose();
         } else if (evt.getSource() == btnClear) {

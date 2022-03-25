@@ -1,11 +1,12 @@
 package com.ashpex;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException, FileNotFoundException {
 	// write your code here
         for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             System.out.println(info.getClassName());

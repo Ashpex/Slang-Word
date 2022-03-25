@@ -11,54 +11,55 @@ public class MenuFrame extends JFrame implements ActionListener{
     SlangWord slangWord;
     ListSlang listSlangWord;
 
-    MenuFrame(){
+    MenuFrame() throws FileNotFoundException {
+        listSlangWord = new ListSlang();
         JLabel label = new JLabel("Slang Words");
         label.setForeground(java.awt.Color.BLUE);
-        label.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 24));
+        label.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 25));
         label.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
         b1 = new JButton("1. Show Slang Words List");
         b1.addActionListener(this);
-        b1.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b1.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b1.setFocusable(false);
 
         b2 = new JButton("2. Find Slang Word");
         b2.addActionListener(this);
-        b2.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b2.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b2.setFocusable(false);
 
         b3 = new JButton("3. Add Slang Word");
         b3.addActionListener(this);
-        b3.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b3.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b3.setFocusable(false);
 
         b4 = new JButton("4. Edit Slang Word");
         b4.addActionListener(this);
-        b4.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b4.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b4.setFocusable(false);
 
         b5 = new JButton("5. Random Slang Word");
         b5.addActionListener(this);
-        b5.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b5.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b5.setFocusable(false);
 
         b6 = new JButton("6. Delete Slang Word");
         b6.addActionListener(this);
-        b6.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b6.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b6.setFocusable(false);
 
         b7 = new JButton("7. Reset Slang Word");
         b7.addActionListener(this);
-        b7.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b7.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b7.setFocusable(false);
 
         b8 = new JButton("8. Show History");
         b8.addActionListener(this);
-        b8.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b8.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b8.setFocusable(false);
 
         b9 = new JButton("9. Quiz");
         b9.addActionListener(this);
-        b9.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
+        b9.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 16));
         b9.setFocusable(false);
 
 
@@ -122,10 +123,36 @@ public class MenuFrame extends JFrame implements ActionListener{
                 ex.printStackTrace();
             }
         }
+        if (e.getSource() == b5) {
+            this.dispose();
+            try{
+                new RandomSlangFrame();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
         if (e.getSource() == b6) {
             this.dispose();
             try{
                 new DeleteSlangFrame();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == b7) {
+            try{
+                int options = JOptionPane.showConfirmDialog(null, "Are you sure you want to reset the database?", "Reset Database", JOptionPane.YES_NO_OPTION);
+                if (options == JOptionPane.YES_OPTION) {
+                    try {
+                        listSlangWord.Reset();
+                        JOptionPane.showMessageDialog(null, "Database has been reset");
+                        listSlangWord.save();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Database has not been reset");
+                }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

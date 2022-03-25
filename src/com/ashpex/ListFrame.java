@@ -84,7 +84,11 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if(e.getSource() == btnBack){
             this.dispose();
-            new MenuFrame();
+            try {
+                new MenuFrame();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

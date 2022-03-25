@@ -54,6 +54,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
         form.add(formLabel, BorderLayout.LINE_START);
         form.add(txtFind, BorderLayout.CENTER);
         form.add(btnFind, BorderLayout.LINE_END);
+        txtFind.setFont(new Font("Arial", Font.PLAIN, 15));
         Dimension dim = new Dimension(800, 50);
         form.setPreferredSize(dim);
         form.setMaximumSize(dim);
@@ -173,7 +174,11 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
             }
         } else if(e.getSource() == btnBack){
             this.dispose();
-            new MenuFrame();
+            try {
+                new MenuFrame();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
