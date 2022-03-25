@@ -42,9 +42,12 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
         // Text field
         JPanel form = new JPanel();
         JLabel formLabel = new JLabel("Input the word you want to find");
+        formLabel.setFont(new Font("Arial", Font.PLAIN, 15));
         txtFind = new JTextField();
         btnFind = new JButton("Find");
         btnBack = new JButton("Back");
+        btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnFind.setFont(new Font("Arial", Font.PLAIN, 20));
         btnFind.addActionListener(this);
         btnFind.setMnemonic(KeyEvent.VK_ENTER);
         form.setLayout(new BorderLayout(10,10));
@@ -102,6 +105,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
         container.add(Box.createRigidArea(new Dimension(0, 10)));
 
         this.setTitle("Find Slang");
+        title.setFont(new Font("Arial", Font.BOLD, 20));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setSize(800, 700);

@@ -44,7 +44,7 @@ public class ListSlang {
                     SlangWord newWord = new SlangWord(tempArray[0], tempArray[1]);
                     slangList.put(newWord.getSlang(), newWord);
                 } else {
-                    SlangWord newWord = new SlangWord(temp, "");
+                    SlangWord newWord = new SlangWord(temp, "-");
                     slangList.put(newWord.getSlang(), newWord);
                 }
             }
@@ -78,9 +78,9 @@ public class ListSlang {
             this.history.saveHistory();
             return definition;
         } else {
-            this.history.Add(word + " not found");
+            this.history.Add(word + ": not found");
             this.history.saveHistory();
-            return word + " not found";
+            return word + ": not found";
         }
     }
 
@@ -103,11 +103,12 @@ public class ListSlang {
                 this.history.saveHistory();
                 return result;
             }else {
-                this.history.Add(word + " not found");
+                this.history.Add(word + ": not found");
                 this.history.saveHistory();
-                return null;
+                return result;
             }
         }
+        this.history.saveHistory();
         return result;
     }
 
@@ -148,7 +149,7 @@ public class ListSlang {
 
     }
 
-    private void addSlang(String slang, String definition, int duplicate) {
+    void addSlang(String slang, String definition, int duplicate) {
         if (!slangList.containsKey(slang)) {
             SlangWord newWord = new SlangWord(slang, definition);
             slangList.put(newWord.getSlang(), newWord);
@@ -158,7 +159,7 @@ public class ListSlang {
                 SlangWord newWord = new SlangWord(slang, definition);
                 slangList.put(newWord.getSlang(), newWord);
             } else {
-                String temp = slangList.get(slang).addDefinition(definition);
+                slangList.get(slang).addDefinition(definition);
             }
         }
     }
@@ -220,7 +221,7 @@ public class ListSlang {
         }
     }
 
-    public void Save(){
+    public void save(){
         try{
             File file = new File("slang.txt");
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.ISO_8859_1));
@@ -275,6 +276,10 @@ public class ListSlang {
 
     public void clearHistory() {
         history.clearHistory();
+    }
+
+    public boolean containsSlang(String slang) {
+        return slangList.containsKey(slang);
     }
 }
 

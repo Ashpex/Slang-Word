@@ -10,7 +10,7 @@ import java.util.List;
 public class testSlang {
     public static void main(String[] args) throws FileNotFoundException {
         ListSlang slang = new ListSlang();
-        String[][] result = slang.searchDefinitionBasedOnSlang3(" ");
+/*        String[][] result = slang.searchDefinitionBasedOnSlang3(" ");
         if(!checkNull(result)) {
             for (int i = 0; i < result.length; i++) {
                 System.out.println(result[i][0] + " " + result[i][1] + " " + result[i][2]);
@@ -27,7 +27,12 @@ public class testSlang {
         String slangWord = splitedStringList.get(1).split(":")[0];
         String definition = splitedStringList.get(1).split(":")[1];
         System.out.println(slangWord);
-        System.out.println(definition);
+        System.out.println(definition);*/
+
+        slang.addSlang("test", "abcdef",0);
+        System.out.println(slang.searchDefinitionBasedOnSlang("hello"));
+        System.out.println(slang.searchDefinitionBasedOnSlang("test"));
+        System.out.println(slang.searchDefinitionBasedOnSlang("test"));
 
     }
     public static boolean checkNull(String[][] result) {
