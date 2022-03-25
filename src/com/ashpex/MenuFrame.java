@@ -31,7 +31,7 @@ public class MenuFrame extends JFrame implements ActionListener{
         b3.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
         b3.setFocusable(false);
 
-        b4 = new JButton("4. Delete Slang Word");
+        b4 = new JButton("4. Edit Slang Word");
         b4.addActionListener(this);
         b4.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
         b4.setFocusable(false);
@@ -41,7 +41,7 @@ public class MenuFrame extends JFrame implements ActionListener{
         b5.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
         b5.setFocusable(false);
 
-        b6 = new JButton("6. Show history");
+        b6 = new JButton("6. Delete Slang Word");
         b6.addActionListener(this);
         b6.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
         b6.setFocusable(false);
@@ -51,7 +51,7 @@ public class MenuFrame extends JFrame implements ActionListener{
         b7.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
         b7.setFocusable(false);
 
-        b8 = new JButton("8. Delete Slang Word");
+        b8 = new JButton("8. Show History");
         b8.addActionListener(this);
         b8.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 14));
         b8.setFocusable(false);
@@ -125,8 +125,16 @@ public class MenuFrame extends JFrame implements ActionListener{
         if (e.getSource() == b6) {
             this.dispose();
             try{
-                new HistoryFrame();
+                new DeleteSlangFrame();
             } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == b8) {
+            this.dispose();
+            try{
+                new HistoryFrame();
+            } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             }
         }

@@ -72,6 +72,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
         jTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         jTable.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         jTable.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        jTable.setFont(new Font("Arial", Font.PLAIN, 20));
 
         DefaultTableCellRenderer headerRender = (DefaultTableCellRenderer)jTable.getTableHeader().getDefaultRenderer();
         headerRender.setHorizontalAlignment(JLabel.CENTER);

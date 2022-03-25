@@ -3252,7 +3252,6 @@ Y2K`Year 2000
 H1B`US employment visa
 GPA`Grade-Point Average
 GPC`Generic Pack of Cigarettes| Get/Post/Cookie 
-ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ`Registered Trademark Symbol
 GPL`General Public License
 GPS`Global Positioning System
 GPU`Graphics Processing Unit
@@ -3273,7 +3272,6 @@ GR8`Great
 SCREB`Dirty| scruffy person
 GR9`Better than GR8
 CHILAXING`Chilling and relaxing
-ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ´`Trademark
 GRE`Graduate Record Examination
 KAFM`Keep Away From Me
 VEETA`Money
@@ -6710,6 +6708,7 @@ PVP`Player v Player
 PVR`Personal Video Recorder
 PVT`Private
 SACK`Bed
+ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ`Registered Trademark Symbol
 TFMTK`That's For Me To Know
 NBTW`Now Back To Work
 WHACK`Bad
@@ -6727,6 +6726,7 @@ TUFF`Rugged
 NBSB`No Boyfriend Since Birth
 OKIES`Okay
 PWM`Professional White Male
+ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ´`Trademark
 PWP`Plot? What Plot?
 PWT`Poor White Trash
 LMOA`LMAO
