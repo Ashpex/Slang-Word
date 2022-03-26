@@ -32,14 +32,38 @@ public class testSlang {
         System.out.println(slang.searchDefinitionBasedOnSlang("hello"));
         System.out.println(slang.searchDefinitionBasedOnSlang("test"));
         System.out.println(slang.searchDefinitionBasedOnSlang("test"));
+        String[][] result = slang.searchSlangBasedOnDefinition2("money");
+        int size = getSize(result);
+        if(!checkNull(result,1)) {
+            for (int i = 0; i < size; i++) {
+                System.out.println(result[i][0] + " " + result[i][1] + " " + result[i][2]);
+            }
+        }
+
 
     }
-    public static boolean checkNull(String[][] result) {
-        for(int i = 0; i < result.length; i++) {
-            if(result[i][0] == null)
-                return true;
+    public static boolean checkNull(String[][] result, int type) {
+        if(type == 0) {
+            for(int i = 0; i < result.length; i++) {
+                if(result[i][0] == null)
+                    return true;
+            }
+            return false;
         }
-        return false;
+        else {
+            if(result[0][0] == null)
+                return true;
+            else return false;
+        }
+
+    }
+
+    public static int getSize(String[][] result) {
+        int i = 0;
+        while(result[i][0] != null) {
+            i++;
+        }
+        return i;
     }
 
     public static List<String> splitString(String inputString, String regEx, int occurancePosition) {

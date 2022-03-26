@@ -131,18 +131,18 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
                 return;
             }
             Object[] options = {"Find definition by slang", "Find slang by definition"};
-            int n = JOptionPane.showOptionDialog(null, "Do you want to find by slang or definition?", "Find", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            int n = JOptionPane.showOptionDialog(null, "Do you want to find by slang word or definition?", "Find", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             String[][] data = new String[0][3];
             if(n == 0){
                 this.clearTable();
                 long startTime = System.currentTimeMillis();
-                System.out.println("Searching for " + word);
                 try{
                     data = slangHashMap.searchDefinitionBasedOnSlang3(word);
                     long endTime = System.currentTimeMillis();
                     long duration = endTime - startTime;
+                    System.out.println("Searching for " + word);
                     String[][] result = data;
-                    if(checkNull(data)){
+                    if(checkNull(data,0)){
                         JOptionPane.showMessageDialog(null, "No definition found", "Error", JOptionPane.ERROR_MESSAGE);
                     }else{
                         JOptionPane.showMessageDialog(null, "Found definition in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -157,18 +157,20 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
 
                 this.clearTable();
                 long startTime = System.currentTimeMillis();
-
-                System.out.println("Searching for " + word);
                 try{
-                    String slang = slangHashMap.searchSlangBasedOnDefinition(word);
-                    System.out.println("Found " + slang);
+                    data = slangHashMap.searchSlangBasedOnDefinition2(word);
                     long endTime = System.currentTimeMillis();
+                    System.out.println("Searching for " + word);
                     long duration = endTime - startTime;
                     JOptionPane.showMessageDialog(null, "Found slang in " + duration + " milliseconds", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    data[0][1] = slang;
                     String[][] result = data;
-                    for (int i = 0; i < result.length; i++) {
-                        model.addRow(result[i]);
+                    if(checkNull(data,1)){
+                        JOptionPane.showMessageDialog(null, "No slang found", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        int size = getSize(result);
+                        for (int i = 0; i < size; i++) {
+                            model.addRow(result[i]);
+                        }
                     }
                 } catch (Exception ex){
                     JOptionPane.showMessageDialog(null, "No slang word found", "Error", JOptionPane.ERROR_MESSAGE);
@@ -194,11 +196,28 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
             model.removeRow(i);
         }
     }
-    public static boolean checkNull(String[][] result) {
-        for(int i = 0; i < result.length; i++) {
-            if(result[i][0] == null)
-                return true;
+    public static boolean checkNull(String[][] result, int type) {
+        if(type == 0) {
+            for(int i = 0; i < result.length; i++) {
+                if(result[i][0] == null)
+                    return true;
+            }
+            return false;
         }
-        return false;
+        else {
+            if(result[0][0] == null)
+                return true;
+            else return false;
+        }
+
     }
+
+    public static int getSize(String[][] result) {
+        int i = 0;
+        while(result[i][0] != null) {
+            i++;
+        }
+        return i;
+    }
+
 }

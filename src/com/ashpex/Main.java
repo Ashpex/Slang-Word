@@ -1,8 +1,12 @@
 package com.ashpex;
 
 import com.ashpex.Frames.MenuFrame;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.io.FileNotFoundException;
 
 public class Main {
@@ -12,7 +16,7 @@ public class Main {
         for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             System.out.println(info.getClassName());
         }
-        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        UIManager.setLookAndFeel(new FlatIntelliJLaf());
         new MenuFrame();
     }
 

@@ -131,22 +131,28 @@ public class SlangHashMap {
 
     }
 
-    public String searchSlangBasedOnDefinition2(String definition) {
+    public String[][] searchSlangBasedOnDefinition2(String definition){
+        int i = 0;
+        String[][] result = new String[slangList.size()][3];
         String temp = standardize(definition);
         String src = "";
         for (Map.Entry<String, SlangWord> entry : slangList.entrySet()) {
             String str = entry.getValue().getDefinition();
             if (str.contains(temp)) {
                 SlangWord word = entry.getValue();
-                src += word.getSlang() + ": " + word.getDefinition() + "\n";
+                result[i][0] = String.valueOf(i+1);
+                result[i][1] = word.getSlang();
+                result[i][2] = word.getDefinition();
+                src = word.getSlang() + ": " + word.getDefinition();
+                history.Add(src);
+                i++;
             }
         }
         if (src.equals("")) {
             src = "No result found";
         }
-        history.Add(src);
-        return src;
-
+        history.saveHistory();
+        return result;
     }
 
     public void addSlang(String slang, String definition, int duplicate) {

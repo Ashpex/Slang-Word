@@ -24,7 +24,7 @@ public class DefinitionQuizFrame extends javax.swing.JFrame implements java.awt.
             System.out.println(quiz.questions[i]);
         }
         // A Label
-        lblScore = new JLabel("Find out the correct answer");
+        lblScore = new JLabel("Score: " + score);
         lblScore.setForeground(Color.blue);
         lblScore.setFont(new Font("Arial", Font.PLAIN, 35));
         lblScore.setAlignmentX(CENTER_ALIGNMENT);

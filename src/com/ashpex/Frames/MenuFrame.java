@@ -16,9 +16,9 @@ public class MenuFrame extends JFrame implements ActionListener{
 
     public MenuFrame() throws FileNotFoundException {
         slangHashMapWord = new SlangHashMap();
-        JLabel label = new JLabel("Slang Words");
+        JLabel label = new JLabel("SLANG WORDS");
         label.setForeground(java.awt.Color.BLUE);
-        label.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 25));
+        label.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 25));
         label.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
         b1 = new JButton("1. Show Slang Words List");
         b1.addActionListener(this);
