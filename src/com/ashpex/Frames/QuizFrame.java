@@ -1,4 +1,4 @@
-package com.ashpex;
+package com.ashpex.Frames;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,7 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
+import com.ashpex.Models.SlangWord;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +11,7 @@ import java.io.FileNotFoundException;
 public class RandomSlangFrame extends javax.swing.JFrame implements ActionListener {
     JButton btnBack;
     JButton btnRandom;
-    ListSlang listSlang = new ListSlang();
+    SlangHashMap slangHashMap = new SlangHashMap();
     JLabel lblSlang;
     JLabel lblDefinition;
     JLabel lblTitle;
@@ -68,7 +71,7 @@ public class RandomSlangFrame extends javax.swing.JFrame implements ActionListen
     @Override
     public void actionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == btnRandom) {
-            SlangWord slangWord = listSlang.RandomSlang();
+            SlangWord slangWord = slangHashMap.RandomSlang();
             lblSlang.setText(slangWord.getSlang()+ ":\n");
             lblDefinition.setText(slangWord.getDefinition());
         }

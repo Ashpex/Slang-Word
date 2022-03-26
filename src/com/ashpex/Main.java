@@ -1,8 +1,9 @@
 package com.ashpex;
 
+import com.ashpex.Frames.MenuFrame;
+
 import javax.swing.*;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Main {
 

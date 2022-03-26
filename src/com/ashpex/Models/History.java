@@ -1,4 +1,4 @@
-package com.ashpex;
+package com.ashpex.Models;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

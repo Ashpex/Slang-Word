@@ -1,17 +1,22 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
 
-public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.event.ActionListener  {
-    JButton btnDelete = new JButton("Delete");
+public class EditSlangFrame extends javax.swing.JFrame implements java.awt.event.ActionListener  {
+    JButton btnEdit = new JButton("Edit");
     JButton btnBack = new JButton("Back");
-    ListSlang listSlang;
+    SlangHashMap slangHashMap;
     JTextField txtSlang;
     JTextField txtDefinition;
+    JRadioButton rb1;
+    JRadioButton rb2;
+    JRadioButton rb3;
 
-    DeleteSlangFrame() throws FileNotFoundException {
+    EditSlangFrame() throws FileNotFoundException {
 
         initComponents();
         setLocationRelativeTo(null);
@@ -21,9 +26,9 @@ public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.eve
     private void initComponents() throws FileNotFoundException {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ashpex
-        listSlang = new ListSlang();
-        btnDelete = new javax.swing.JButton();
-        btnDelete.setFont(new Font("Arial", Font.PLAIN, 20));
+        slangHashMap = new SlangHashMap();
+        btnEdit = new javax.swing.JButton();
+        btnEdit.setFont(new Font("Arial", Font.PLAIN, 20));
         btnBack = new javax.swing.JButton();
         btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
         txtSlang = new javax.swing.JTextField("",30);
@@ -33,15 +38,34 @@ public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.eve
         txtDefinition.setEditable(false);
         Container container = this.getContentPane();
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(this);
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(this);
 
 
         btnBack.setText("Back");
         btnBack.addActionListener(this);
 
-        JLabel title = new JLabel("Delete Slang");
-        title.setFont(new java.awt.Font("Tahoma", Font.BOLD, 20));
+        rb1 = new JRadioButton("Delete one definition");
+        rb1.setFont(new Font("Arial", Font.PLAIN, 20));
+        rb2 = new JRadioButton("Add a definition");
+        rb2.setFont(new Font("Arial", Font.PLAIN, 20));
+        rb3 = new JRadioButton("Overwrite all definitions");
+        rb3.setFont(new Font("Arial", Font.PLAIN, 20));
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(rb1);
+        bg.add(rb2);
+        bg.add(rb3);
+
+        JPanel rbPanel = new JPanel();
+        rbPanel.setLayout(new GridLayout(0,3));
+        rbPanel.add(rb1);
+        rbPanel.add(rb2);
+        rbPanel.add(rb3);
+
+
+        JLabel title = new JLabel("EDIT SLANG");
+        title.setFont(new java.awt.Font("Arial", Font.BOLD, 20));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         title.setPreferredSize(new Dimension(300, 100));
 
@@ -83,15 +107,17 @@ public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.eve
         form.add(slangPanel);
         container.add(Box.createRigidArea(new Dimension(0, 10)));
         form.add(definitionPanel);
+        container.add(Box.createRigidArea(new Dimension(0, 10)));
+        form.add(rbPanel);
 
         // Buttons
         JPanel buttons = new JPanel();
         btnBack.setFocusable(false);
         btnBack.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnDelete.setFocusable(false);
-        btnDelete.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnEdit.setFocusable(false);
+        btnEdit.setAlignmentX(Component.CENTER_ALIGNMENT);
         buttons.add(btnBack);
-        buttons.add(btnDelete);
+        buttons.add(btnEdit);
 
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -103,7 +129,7 @@ public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.eve
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.pack();
-        this.setTitle("Delete Slang");
+        this.setTitle("Edit Slang");
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -119,28 +145,55 @@ public class DeleteSlangFrame extends javax.swing.JFrame implements java.awt.eve
                 ex.printStackTrace();
             }
         }
-        if (e.getSource() == btnDelete) {
+        if (e.getSource() == btnEdit) {
             String slang = txtSlang.getText();
             if(slang.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter a slang word", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                if(listSlang.containsSlang(slang)){
-                    String definition = listSlang.searchDefinitionBasedOnSlang(slang);
+                if(slangHashMap.containsSlang(slang)) {
+                    String definition = slangHashMap.searchDefinitionBasedOnSlang(slang);
+                    String newDefinition;
                     txtDefinition.setText(definition);
-                    int options = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this slang?", "Delete Slang", JOptionPane.YES_NO_OPTION);
-                    if(options == JOptionPane.YES_OPTION){
-                        listSlang.deleteSlang(slang);
-                        JOptionPane.showMessageDialog(null, "Slang deleted successfully", "Delete Slang", JOptionPane.INFORMATION_MESSAGE);
-                        txtSlang.setText("");
-                        txtDefinition.setText("");
-                        listSlang.save();
-                    } else if(options == JOptionPane.NO_OPTION){
-                        txtSlang.setText("");
-                        txtDefinition.setText("");
+                    if (rb1.isSelected()) {
+                        newDefinition = JOptionPane.showInputDialog(null, "Enter a definition to be deleted", "Delete Definition", JOptionPane.QUESTION_MESSAGE);
+                        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the definition?", "Delete Definition", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            slangHashMap.editSlang(slang, newDefinition,1);
+                            slangHashMap.save();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Definition not deleted", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
-                } else{
-                    JOptionPane.showMessageDialog(null, "Slang not found", "Error", JOptionPane.ERROR_MESSAGE);
+                    else if (rb2.isSelected()) {
+                        newDefinition = JOptionPane.showInputDialog(null, "Enter a definition to be added", "Add Definition", JOptionPane.QUESTION_MESSAGE);
+                        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to add this definition?", "Add Definition", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            slangHashMap.editSlang(slang, newDefinition,2);
+                            slangHashMap.save();
+                            JOptionPane.showMessageDialog(null, "Definition added successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Definition not added", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    else if (rb3.isSelected()) {
+                        newDefinition = JOptionPane.showInputDialog(null, "Enter a definition to be overwrite", "Overwrite Definition", JOptionPane.QUESTION_MESSAGE);
+                        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to overwrite the definition?", "Overwrite", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            slangHashMap.editSlang(slang, newDefinition,3);
+                            slangHashMap.save();
+                            JOptionPane.showMessageDialog(null, "Definition overwritten successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Definition not overwritten", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Please select an option", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    txtDefinition.setText("");
+                    txtSlang.setText("");
+                }
+                else if(!slangHashMap.containsSlang(slang)){
+                    JOptionPane.showMessageDialog(null, "Slang word not found", "Error", JOptionPane.ERROR_MESSAGE);
+                    txtDefinition.setText("");
+                    txtSlang.setText("");
                 }
             }
         }

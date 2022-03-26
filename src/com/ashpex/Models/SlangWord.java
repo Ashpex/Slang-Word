@@ -1,4 +1,4 @@
-package com.ashpex;
+package com.ashpex.Models;
 
 public class SlangWord {
     private String slang;
@@ -30,7 +30,7 @@ public class SlangWord {
     }
 
     public String addDefinition(String definition) {
-        this.definition = this.definition + "|" + definition;
+        this.definition = this.definition + " | " + definition;
         return this.definition;
     }
 

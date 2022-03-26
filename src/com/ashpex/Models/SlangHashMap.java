@@ -1,11 +1,11 @@
-package com.ashpex;
+package com.ashpex.Models;
 
 import javax.swing.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-public class ListSlang {
+public class SlangHashMap {
     private static final Map.Entry<String, SlangWord> entry = null;
     private HashMap<String, SlangWord> slangList = new HashMap<String, SlangWord>();
     public History history = new History();
@@ -26,7 +26,7 @@ public class ListSlang {
         return result;
     }
 
-    public ListSlang() throws FileNotFoundException {
+    public SlangHashMap() throws FileNotFoundException {
         // TODO Auto-generated constructor stub
         History history = new History();
         String temp = "";
@@ -149,7 +149,7 @@ public class ListSlang {
 
     }
 
-    void addSlang(String slang, String definition, int duplicate) {
+    public void addSlang(String slang, String definition, int duplicate) {
         if (!slangList.containsKey(slang)) {
             SlangWord newWord = new SlangWord(slang, definition);
             slangList.put(newWord.getSlang(), newWord);
@@ -173,12 +173,12 @@ public class ListSlang {
     public void editSlang(String slang, String definition, int option) {
         switch (option) {
             case 1:
-                if (slangList.get(slang).getDefinition().equals(definition)) {
+                if (slangList.get(slang).getDefinition().contains(definition)) {
                     String str = standardize(slangList.get(slang).removeDefinition(definition));
-                    slangList.get(slang).setSlang(str);
-                    JOptionPane.showConfirmDialog(null, "Slang word has been deleted", "Edit", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    slangList.get(slang).setDefinition(str);
+                    JOptionPane.showConfirmDialog(null, "Successfully deleted definition", "Edit", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Successfully deleted definition", "Edit", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(null, "Deleted failed", "Edit", JOptionPane.DEFAULT_OPTION);
                 }
                 break;
             case 2:

@@ -1,50 +1,53 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.Quiz;
+import com.ashpex.Models.SlangHashMap;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
 
-public class DefinitionQuizFrame extends javax.swing.JFrame implements java.awt.event.ActionListener {
+public class SlangQuizFrame extends javax.swing.JFrame implements java.awt.event.ActionListener {
     JButton b1, b2, b3, b4, btnBack;
     JButton btnNext;
-    JLabel label;
+    JLabel lblScore;
     JLabel lblQuestion;
-    Game game;
+    Quiz quiz;
     int score;
-    ListSlang listSlang;
-    DefinitionQuizFrame() throws FileNotFoundException {
-        listSlang = new ListSlang();
-        game = new Game();
-        game.setQuestions(listSlang,1);
-        for (int i = 0; i < game.getQuestion().length; i++) {
-            System.out.println(game.questions[i]);
+    SlangHashMap slangHashMap;
+    SlangQuizFrame() throws FileNotFoundException {
+        slangHashMap = new SlangHashMap();
+        quiz = new Quiz();
+        quiz.setQuestions(slangHashMap,2);
+        for (int i = 0; i < quiz.getQuestion().length; i++) {
+            System.out.println(quiz.questions[i]);
         }
         // A Label
-        JLabel label = new JLabel("Find out the correct answer");
-        label.setForeground(Color.black);
-        label.setFont(new Font("Gill Sans MT", Font.PLAIN, 35));
-        label.setAlignmentX(CENTER_ALIGNMENT);
-        label.setAlignmentY(-100);
+        lblScore = new JLabel("Score: " + score);
+        lblScore.setForeground(Color.blue);
+        lblScore.setFont(new Font("Arial", Font.PLAIN, 30));
+        lblScore.setAlignmentX(CENTER_ALIGNMENT);
+        lblScore.setAlignmentY(-100);
 
-        lblQuestion = new JLabel( game.questions[0] + " has definition?");
+        lblQuestion = new JLabel( quiz.questions[0] + " has slang word?");
         lblQuestion.setForeground(Color.black);
-        lblQuestion.setFont(new Font("Gill Sans MT", Font.PLAIN, 18));
+        lblQuestion.setFont(new Font("Arial", Font.PLAIN, 20));
         lblQuestion.setAlignmentX(CENTER_ALIGNMENT);
         lblQuestion.setAlignmentY(-100);
 
         // Add space
         // A Grid Answers
-        b1 = new JButton("A." + game.questions[1]);
+        b1 = new JButton("A." + quiz.questions[1]);
         b1.addActionListener(this);
         b1.setFont(new Font("Arial", Font.PLAIN, 15));
-        b2 = new JButton("B." + game.questions[2]);
+        b2 = new JButton("B." + quiz.questions[2]);
         b2.addActionListener(this);
         b2.setFont(new Font("Arial", Font.PLAIN, 15));
-        b3 = new JButton("C." + game.questions[3]);
+        b3 = new JButton("C." + quiz.questions[3]);
         b3.addActionListener(this);
         b3.setFont(new Font("Arial", Font.PLAIN, 15));
-        b4 = new JButton("D. " + game.questions[4]);
+        b4 = new JButton("D. " + quiz.questions[4]);
         b4.addActionListener(this);
         b4.setFont(new Font("Arial", Font.PLAIN, 15));
 
@@ -75,7 +78,7 @@ public class DefinitionQuizFrame extends javax.swing.JFrame implements java.awt.
         Container con = this.getContentPane();
         con.setLayout(new BoxLayout(con, BoxLayout.Y_AXIS));
         con.add(Box.createRigidArea(new Dimension(0, 100)));
-        con.add(label);
+        con.add(lblScore);
         con.add(Box.createRigidArea(new Dimension(0, 30)));
         con.add(lblQuestion);
         con.add(Box.createRigidArea(new Dimension(0, 50)));
@@ -112,8 +115,8 @@ public class DefinitionQuizFrame extends javax.swing.JFrame implements java.awt.
 
     private void nextQuestion() {
         // TODO Auto-generated method stub
-        game = new Game();
-        game.setQuestions(listSlang,1);
+        quiz = new Quiz();
+        quiz.setQuestions(slangHashMap,2);
         b1.setEnabled(true);
         b2.setEnabled(true);
         b3.setEnabled(true);
@@ -122,22 +125,22 @@ public class DefinitionQuizFrame extends javax.swing.JFrame implements java.awt.
         b2.setBackground(null);
         b3.setBackground(null);
         b4.setBackground(null);
-        lblQuestion.setText(game.questions[0] + " has definition?");
-        b1.setText("A." + game.questions[1]);
-        b2.setText("B." + game.questions[2]);
-        b3.setText("C." + game.questions[3]);
-        b4.setText("D. " + game.questions[4]);
+        lblQuestion.setText(quiz.questions[0] + " has slang word?");
+        b1.setText("A." + quiz.questions[1]);
+        b2.setText("B." + quiz.questions[2]);
+        b3.setText("C." + quiz.questions[3]);
+        b4.setText("D. " + quiz.questions[4]);
 
     }
 
     public void answer(int ans) {
-        if (game.checkAnswer(ans)) {
+        if (quiz.checkAnswer(ans)) {
             // default title and icon
             JOptionPane.showMessageDialog(this, "Correct Answer. You have earned 10 points", "Correct", JOptionPane.INFORMATION_MESSAGE);
             score += 10;
+            lblScore.setText("Score: " + score);
 
         } else {
-            JOptionPane.showMessageDialog(this, "Wrong Answer", "Error", JOptionPane.ERROR_MESSAGE);
             if (ans == 1)
                 b1.setBackground(Color.red);
             else if (ans == 2)
@@ -146,23 +149,24 @@ public class DefinitionQuizFrame extends javax.swing.JFrame implements java.awt.
                 b3.setBackground(Color.red);
             else if (ans == 4)
                 b4.setBackground(Color.red);
+            JOptionPane.showMessageDialog(this, "Wrong Answer", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        if (game.checkAnswer(1)) {
+        if (quiz.checkAnswer(1)) {
             b1.setBackground(Color.green);
         } else {
             b1.setEnabled(false);
         }
-        if (game.checkAnswer(2)) {
+        if (quiz.checkAnswer(2)) {
             b2.setBackground(Color.green);
         } else {
             b2.setEnabled(false);
         }
-        if (game.checkAnswer(3)) {
+        if (quiz.checkAnswer(3)) {
             b3.setBackground(Color.green);
         } else {
             b3.setEnabled(false);
         }
-        if (game.checkAnswer(4)) {
+        if (quiz.checkAnswer(4)) {
             b4.setBackground(Color.green);
         } else {
             b4.setEnabled(false);

@@ -1,6 +1,5 @@
-package com.ashpex;
+package com.ashpex.Models;
 
-import java.awt.*;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
@@ -9,7 +8,7 @@ import java.util.List;
 
 public class testSlang {
     public static void main(String[] args) throws FileNotFoundException {
-        ListSlang slang = new ListSlang();
+        SlangHashMap slang = new SlangHashMap();
 /*        String[][] result = slang.searchDefinitionBasedOnSlang3(" ");
         if(!checkNull(result)) {
             for (int i = 0; i < result.length; i++) {

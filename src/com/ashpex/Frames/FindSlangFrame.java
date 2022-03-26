@@ -1,4 +1,6 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -17,7 +19,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
     JTable jTable;
     JLabel titleLabel;
     DefaultTableModel model;
-    ListSlang listSlang;
+    SlangHashMap slangHashMap;
 
     final JOptionPane optionPane = new JOptionPane("The only way to close this dialog is by\n"
             + "pressing one of the following buttons.\n" + "Do you understand?", JOptionPane.QUESTION_MESSAGE,
@@ -26,9 +28,9 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
 
     FindSlangFrame() throws FileNotFoundException {
         Container container = this.getContentPane();
-        listSlang = new ListSlang();
+        slangHashMap = new SlangHashMap();
         //set title
-        JLabel title = new JLabel("Find Slang");
+        JLabel title = new JLabel("FIND SLANG");
         title.setFont(new Font("Arial", Font.BOLD, 20));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -136,7 +138,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
                 long startTime = System.currentTimeMillis();
                 System.out.println("Searching for " + word);
                 try{
-                    data = listSlang.searchDefinitionBasedOnSlang3(word);
+                    data = slangHashMap.searchDefinitionBasedOnSlang3(word);
                     long endTime = System.currentTimeMillis();
                     long duration = endTime - startTime;
                     String[][] result = data;
@@ -158,7 +160,7 @@ public class FindSlangFrame extends JFrame implements ActionListener, TableModel
 
                 System.out.println("Searching for " + word);
                 try{
-                    String slang = listSlang.searchSlangBasedOnDefinition(word);
+                    String slang = slangHashMap.searchSlangBasedOnDefinition(word);
                     System.out.println("Found " + slang);
                     long endTime = System.currentTimeMillis();
                     long duration = endTime - startTime;

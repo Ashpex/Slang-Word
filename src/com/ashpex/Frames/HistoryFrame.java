@@ -1,15 +1,15 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,10 +19,10 @@ public class HistoryFrame extends javax.swing.JFrame implements ActionListener {
     JButton btnBack;
     JButton btnClear;
     JButton btnExit;
-    ListSlang listSlang = new ListSlang();
+    SlangHashMap slangHashMap = new SlangHashMap();
     HistoryFrame() throws FileNotFoundException {
         Container container = this.getContentPane();
-        JLabel lblHistory = new JLabel("History");
+        JLabel lblHistory = new JLabel("HISTORY");
         lblHistory.setFont(new Font("Arial", Font.BOLD, 20));
         lblHistory.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -30,7 +30,7 @@ public class HistoryFrame extends javax.swing.JFrame implements ActionListener {
         JPanel pnlTable = new JPanel();
         pnlTable.setBackground(Color.BLACK);
 
-        ArrayList<String> history = listSlang.getHistory();
+        ArrayList<String> history = slangHashMap.getHistory();
         String[] columnNames = {"ID", "Search", "Result", "Date"};
         String regEx = "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}";
         String[][] data = new String[history.size()][4];
@@ -116,7 +116,7 @@ public class HistoryFrame extends javax.swing.JFrame implements ActionListener {
             Object[] options = {"Yes","No"};
             int option = JOptionPane.showOptionDialog(this, "Are you sure you want to clear history?", "Clear history", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
             if (option == 0) {
-                listSlang.clearHistory();
+                slangHashMap.clearHistory();
                 this.dispose();
             }
             try {

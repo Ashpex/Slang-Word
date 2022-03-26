@@ -1,4 +1,7 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
+import com.ashpex.Models.SlangWord;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +12,10 @@ public class MenuFrame extends JFrame implements ActionListener{
     private static final String[] menuItems = {"File", "Edit", "View", "Help"};
     JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
     SlangWord slangWord;
-    ListSlang listSlangWord;
+    SlangHashMap slangHashMapWord;
 
-    MenuFrame() throws FileNotFoundException {
-        listSlangWord = new ListSlang();
+    public MenuFrame() throws FileNotFoundException {
+        slangHashMapWord = new SlangHashMap();
         JLabel label = new JLabel("Slang Words");
         label.setForeground(java.awt.Color.BLUE);
         label.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 25));
@@ -123,6 +126,14 @@ public class MenuFrame extends JFrame implements ActionListener{
                 ex.printStackTrace();
             }
         }
+        if (e.getSource() == b4) {
+            this.dispose();
+            try{
+                new EditSlangFrame();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
         if (e.getSource() == b5) {
             this.dispose();
             try{
@@ -144,9 +155,9 @@ public class MenuFrame extends JFrame implements ActionListener{
                 int options = JOptionPane.showConfirmDialog(null, "Are you sure you want to reset the database?", "Reset Database", JOptionPane.YES_NO_OPTION);
                 if (options == JOptionPane.YES_OPTION) {
                     try {
-                        listSlangWord.Reset();
+                        slangHashMapWord.Reset();
                         JOptionPane.showMessageDialog(null, "Database has been reset");
-                        listSlangWord.save();
+                        slangHashMapWord.save();
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

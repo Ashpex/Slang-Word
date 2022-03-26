@@ -1,4 +1,6 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
 
 import javax.swing.*;
 import javax.swing.event.TableModelListener;
@@ -11,15 +13,15 @@ import java.io.FileNotFoundException;
 public class ListFrame extends JFrame implements ActionListener, TableModelListener {
     JButton btnBack;
     JTable jTable;
-    ListSlang listSlang;
+    SlangHashMap slangHashMap;
     String[][] data;
     String[][] data2;
 
     public ListFrame() throws FileNotFoundException {
         Container container = this.getContentPane();
-        listSlang = new ListSlang();
-        data = listSlang.getData();
-        JLabel lblTitle = new JLabel("List of Slang");
+        slangHashMap = new SlangHashMap();
+        data = slangHashMap.getData();
+        JLabel lblTitle = new JLabel("LIST OF SLANG WORDS");
         lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitle.setBounds(10, 10, 200, 30);
         lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -33,8 +35,8 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
         panelTable.setBackground(Color.black);
         String column[] = { "ID", "Slang Word", "Definition" };
 
-        data2 = listSlang.getData();
-        data = listSlang.getData();
+        data2 = slangHashMap.getData();
+        data = slangHashMap.getData();
         result.setText("Total: " + data.length);
         jTable = new JTable(data, column);
         jTable.setRowHeight(30);
@@ -102,9 +104,9 @@ public class ListFrame extends JFrame implements ActionListener, TableModelListe
         String Value = (String) jTable.getValueAt(row, column);
 
         if(column == 2){
-            System.out.println("Old slangword: \t" + row + "\t" + data2[row][2]);
+/*            System.out.println("Old slangword: \t" + row + "\t" + data2[row][2]);
             //listSlang.editSlang((String) jTable.getValueAt(row, 1), data2[row][2], (String) jTable.getValueAt(row, 2));
-            JOptionPane.showMessageDialog(this, "Edit Successful", "Edit", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Edit Successful", "Edit", JOptionPane.INFORMATION_MESSAGE);*/
         }
 
     }

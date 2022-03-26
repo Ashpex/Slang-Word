@@ -1,11 +1,13 @@
-package com.ashpex;
+package com.ashpex.Frames;
+
+import com.ashpex.Models.SlangHashMap;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
 
 public class AddSlangFrame extends javax.swing.JFrame implements java.awt.event.ActionListener {
-    ListSlang listSlang;
+    SlangHashMap slangHashMap;
     JButton btnAdd;
     JButton btnBack;
     JTextField txtSlang;
@@ -15,7 +17,7 @@ public class AddSlangFrame extends javax.swing.JFrame implements java.awt.event.
     }
 
     private void initComponents() throws FileNotFoundException {
-        listSlang = new ListSlang();
+        slangHashMap = new SlangHashMap();
         btnAdd = new javax.swing.JButton();
         btnAdd.setFont(new Font("Arial", Font.PLAIN, 20));
         btnBack = new javax.swing.JButton();
@@ -111,21 +113,21 @@ public class AddSlangFrame extends javax.swing.JFrame implements java.awt.event.
                 JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if(listSlang.containsSlang(slang)){
+            if(slangHashMap.containsSlang(slang)){
                 Object[] options = {"Overwrite", "Add Definition", "Cancel"};
                 int n = JOptionPane.showOptionDialog(null, "Slang already exists. Do you want to overwrite it? Press yes to confirm, press no to add definition", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, options, null);
                 if(n == JOptionPane.YES_OPTION){
-                    listSlang.addSlang(slang, definition, 1);
+                    slangHashMap.addSlang(slang, definition, 1);
                     JOptionPane.showMessageDialog(null, "Slang overwritten");
                 }else if(n == JOptionPane.NO_OPTION){
-                    listSlang.addSlang(slang, definition, 0);
+                    slangHashMap.addSlang(slang, definition, 0);
                     JOptionPane.showMessageDialog(null, "Definition added");
                 }
             } else {
-                listSlang.addSlang(slang, definition, 0);
+                slangHashMap.addSlang(slang, definition, 0);
                 JOptionPane.showMessageDialog(null, "Slang added");
             }
-            listSlang.save();
+            slangHashMap.save();
             txtSlang.setText("");
             txtDefinition.setText("");
 
