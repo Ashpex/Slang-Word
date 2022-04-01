@@ -360,7 +360,7 @@ BSB`Backstreet Boys
 STR`Strength| Short Term Relationship
 BSA`Boy Scouts of America
 BSC`Bachelor of Science
-C4C`Comment for Comment
+C4C`Comment for Comment| Cam for Cam
 STS`Smirk To Self
 TI AMO`I Love You
 BSF`But Seriously Folks
@@ -457,7 +457,7 @@ SYA`See You
 BWT`Misspelling of BTW
 SYG`Shut Your Gob
 SYF`Shut Your Face
-BWW`Buffalo Wild Wings
+BWW`Buffalo Wild Wings 
 CACHAI`Do you understand?
 SYK`So You Know
 SYM`Shut Your Mouth| So You Mad?
@@ -582,7 +582,7 @@ CBD`Cute But Dumb
 CBC`Canadian Broadcasting Corporation
 CBH`Child Bearing Hips
 CBI`Californian Bureau of Investigation| Confederation of British Industry
-CBR`Captive Bead Ring
+CBR`Captive Bead Ring 
 ELI5`Explain Like I'm 5
 CBT`Cognitive Behavioural Therapy
 CBS`Can't Be Stuffed
@@ -892,7 +892,6 @@ IYAM`If You Ask Me
 CPM`Cost Per Thousand
 DISO`Desperately In Search Of
 CPP`C Plus Plus| C++ (programming language)
-Person wearing a hooded sweatshirt`----
 THAR`There
 TRA`Bye
 CPR`Cardiopulmonary Resuscitation
@@ -1442,7 +1441,7 @@ EM`E-Mail| Them
 EP`Extended Play
 F1`Formula One
 EQ`EverQuest (game)
-ER`Emergency Room
+ER`Emergency Room| Indicating hesitation
 DAMAGE`Cost of something
 DILLIC`Does It Look Like I Care
 ET`Extra Terrestrial
@@ -2837,7 +2836,7 @@ POTY`Post Of The Year
 WSA`Wow, Strong Arms
 G2R`Got To Run
 BUSTED`Very Ugly| Caught
-POTW`Patient of the Week
+POTW`Patient of the Week 
 G2S`Go To Sleep
 BWOI`Friend| buddy
 WSM`Woman Seeking Man
@@ -3174,7 +3173,6 @@ GOMEN`Sorry
 SHWE`Should We
 DMML`Don't Make Me Laugh
 HIT ME UP`Call me later
-Something really good`----
 XLS`MS Excel file extension
 GOMER`Get Out of My Emergency Room| unwelcome patient
 ADDY`Address
@@ -3250,7 +3248,7 @@ LSHMBH`Laughing So Hard My Belly Hurts
 Y2K`Year 2000
 H1B`US employment visa
 GPA`Grade-Point Average
-GPC`Generic Pack of Cigarettes| Get/Post/Cookie
+GPC`Generic Pack of Cigarettes| Get/Post/Cookie 
 GPL`General Public License
 GPS`Global Positioning System
 GPU`Graphics Processing Unit
@@ -3603,7 +3601,7 @@ GRULE`Hard work| nuisance
 FTUW`For The Ultimate Win
 BTWITIAILWU`By The Way, I Think I Am In Love With You
 HLV`Hasta La Vista
-8-)`Cool
+8-)`Cool 
 GFWL`Games For Windows Live
 BTWITIAILWY`By The Way, I Think I Am In Love With You
 YNK`You Never Know
@@ -3647,7 +3645,7 @@ HOG`Harley Owner Group
 Ã`Registered Trademark Symbol
 GLEAK`Spit
 HON`Honey
-8-|`Nerdy
+8-|`Nerdy 
 HOP`Heroin
 HOT`Very good looking| sexy
 BHL8`Be Home Late
@@ -3870,7 +3868,7 @@ IBS`Irritable Bowel Syndrome
 IBU`Ibuprofen
 QOTSA`Queens Of The Stone Age (Band)
 IBW`I'll Be Waiting
-ICC`Ice Crown Citadel
+ICC`Ice Crown Citadel 
 BLARG`boredom
 ICB`I Can't Believe...
 ICE`Diamonds| Crystal meth| Kill
@@ -4426,7 +4424,7 @@ TE AMO`I love you (Spanish)
 ELBOW`A pound of marijuana
 (S)`Seriously
 SLAN`Goodbye
-HOODIE`Hooded sweatshirt
+HOODIE`Hooded sweatshirt| Person wearing a hooded sweatshirt
 LUWAMH`Love You with All My Heart
 WAFWOT`What A F***ing Waste Of Time
 JUZ`Just
@@ -4675,7 +4673,6 @@ KTF`Keep The Faith
 AYOR`At Your Own Risk
 WAYOA`What Are You On About?
 KTY`Ok, Thank You
-Cam for Cam`----
 NNTP`Network News Transfer Protocol
 NNTR`No Need To Reply
 DIQUE`Supposedly
@@ -4743,7 +4740,6 @@ J DUB`Jehovah's Witness
 OFWGKTA`Odd Future Wolf Gang Kill Them All
 WYTA`What You Talking About?
 MOBBING`Bullying
-Indicating hesitation`----
 SMHL`Shaking My Head Laughing
 USPS`United States Postal Service
 WAYWO`What Are You Working On?
@@ -6197,7 +6193,7 @@ BOMM`BOOMM
 DURS`Damn, You Are Sexy
 P2W`Pay To Win
 BFFLE`Best Friends For Like Ever
-BOMB`Something really bad
+BOMB`Something really bad| Something really good
 KIFF`Cool
 CAPO`Captain| Mafia boss
 ICBI`I Can't Believe It
@@ -6984,7 +6980,6 @@ CTRL`Control (key)
 KOOLS`Mentholated cigarettes
 HONKIE`White person
 SSBB`Super Smash Brothers Brawl
-Against Medical Advice`----
 ALPHA`Head person of a group
 /R/`Requesting
 QTR`Quarter
@@ -7259,7 +7254,7 @@ MESSRS`Messieurs| Mister
 RLZ`Rules
 RMA`Return Merchandise Authorization
 AKS`Ask
-CULO`Ass
+CULO`Ass 
 RME`Rolling My Eyes
 RML`Read My Lips
 ALA`In the style of
@@ -7285,7 +7280,7 @@ S/O`Shout Out| Significant Other
 TROLLING`The act of being a TROLL
 S/N`Serial Number
 .GOV`governments
-AMA`Ask Me Anything
+AMA`Ask Me Anything| Against Medical Advice
 BTBAM`Between The Buried And Me (band)
 AMC`American Motors Corportation
 RNR`Rock 'N Roll
@@ -7475,7 +7470,7 @@ LOOL`Laughing Outlandishly Out Loud
 ATW`All The Way
 COCK UP`Mistake| mess
 ATX`Austin, Texas
-LOOT`Money
+LOOT`Money 
 IWHI`I Would Hit It
 RVR`Realm Versus Realm (MMORPG)
 AUD`Australian Dollar

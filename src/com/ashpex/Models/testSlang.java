@@ -65,7 +65,7 @@ public class testSlang {
         }
         return i;
     }
-
+    /*https://stackoverflow.com/a/49248359*/
     public static List<String> splitString(String inputString, String regEx, int occurancePosition) {
         List<String> splitedStringList = new LinkedList<String>();
         // Check if inputString is not null
